@@ -1,3 +1,30 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+    <form [formGroup]="gbsuFtbLaiFormGroup" (ngSubmit)="submitNumber()">
+        <div class="form-group">
+            <label for="">Number to convert</label><br>
+            <input class="form-control" placeholder="inputNumber" type="number" formControlName="inputNumber">
+            <div *ngIf="gbsuFtbLaiFormGroup.get('inputNumber').invalid && 
+            (gbsuFtbLaiFormGroup.get('inputNumber').dirty || gbsuFtbLaiFormGroup.get('inputNumber').touched)"                
+                class="alert alert-danger">
+                <span *ngIf="gbsuFtbLaiFormGroup.get('inputNumber').errors?.required">Input is required.</span>
+                <span *ngIf="gbsuFtbLaiFormGroup.get('inputNumber').errors?.max">The number must be must be less than 2147483648, otherwise we use BigInteger.</span>
+            </div>
+        </div>
+        <button type="submit" [disabled]="!gbsuFtbLaiFormGroup.valid" class="btn btn-primary">Convert</button>
+    </form>
 </div>
+
+<!--
+
+    [class.is-invalid]="gbsuFtbLaiFormGroup.get('inputNumber').invalid && 
+                                        gbsuFtbLaiFormGroup.get('inputNumber').touched"
+                                        
+    <div *ngIf="gbsuFtbLaiFormGroup.get('inputNumber').invalid && 
+                        gbsuFtbLaiFormGroup.get('inputNumber').touched" 
+                        class="alert alert-danger">
+
+                <div *ngIf="gbsuFtbLaiFormGroup.get('inputNumber').errors?.['required']">
+                    Input is required.
+                </div>
+            </div>
+-->
