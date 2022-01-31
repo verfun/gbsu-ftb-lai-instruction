@@ -3,20 +3,50 @@ package com.kata.gbsuftblai.Utils;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
+/**
+ * The type Convert to string.
+ */
 public class ConvertToString {
 
+    /**
+     * Is divisible by three boolean.
+     *
+     * @param inputNumber the input number
+     * @param digits      the digits
+     * @return the boolean
+     */
     public static boolean isDivisibleByThree(int inputNumber, int[] digits) {
         return IntStream.of(digits).sum()%3 == 0;
     }
 
+    /**
+     * Gets frequency.
+     *
+     * @param element the element
+     * @param digits  the digits
+     * @return the frequency
+     */
     public static long getFrequency(int element, int[] digits) {
         return IntStream.of(digits).filter(e -> e == element).count();
     }
 
+    /**
+     * Is divisible by five boolean.
+     *
+     * @param inputNumber the input number
+     * @return the boolean
+     */
     public static boolean isDivisibleByFive(int inputNumber) {
         return inputNumber%5 == 0;
     }
 
+    /**
+     * Convert digit string.
+     *
+     * @param digit     the digit
+     * @param frequency the frequency
+     * @return the string
+     */
     public static String convertDigit(int digit, long frequency) {
         String result =  String.valueOf(digit);
         result = getString(digit, result);
@@ -35,6 +65,12 @@ public class ConvertToString {
         return result;
     }
 
+    /**
+     * Convert number string.
+     *
+     * @param inputNumber the input number
+     * @return the string
+     */
     public static String convertNumber(int inputNumber) {
         StringBuilder stb = new StringBuilder();
         // get number's digits

@@ -6,10 +6,19 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+/**
+ * The type Gbsu ftb lai test.
+ */
 public class GbsuFtbLaiTest {
 
     private ConvertToString convertToString;
 
+    /**
+     * Is divisible by three.
+     *
+     * @param inputNumber the input number
+     * @param expected    the expected
+     */
     @ParameterizedTest
     @CsvSource({
             "9,true",
@@ -24,6 +33,12 @@ public class GbsuFtbLaiTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    /**
+     * Is divisible by five.
+     *
+     * @param inputNumber the input number
+     * @param expected    the expected
+     */
     @ParameterizedTest
     @CsvSource({
             "90,true",
@@ -36,6 +51,13 @@ public class GbsuFtbLaiTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    /**
+     * Element frequency.
+     *
+     * @param inputNumber       the input number
+     * @param digit             the digit
+     * @param expectedFrequency the expected frequency
+     */
     @ParameterizedTest
     @CsvSource({
             "93443873,3,3",
@@ -51,6 +73,13 @@ public class GbsuFtbLaiTest {
         assertThat(result).isEqualTo(expectedFrequency);
     }
 
+    /**
+     * Convert digit to string.
+     *
+     * @param digit          the digit
+     * @param frequency      the frequency
+     * @param expectedResult the expected result
+     */
     @ParameterizedTest
     @CsvSource({
             "3,2,GbsuGbsu",
@@ -64,6 +93,12 @@ public class GbsuFtbLaiTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    /**
+     * Convert number to string.
+     *
+     * @param inputNumber    the input number
+     * @param expectedResult the expected result
+     */
     @ParameterizedTest
     @CsvSource({
             "1,1",
